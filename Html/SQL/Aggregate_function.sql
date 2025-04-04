@@ -1,0 +1,119 @@
+--AGGREGATE FUNCTIONS--
+
+select* from scott.emp;
+
+--1.MAX FUNCTION--
+
+SELECT MAX(SAL)FROM SCOTT.emp;
+
+SELECT
+    MAX(SAL)
+FROM
+    SCOTT.EMP
+WHERE
+    JOB = 'MANAGER';
+
+
+SELECT
+    MAX(HIREDATE)
+FROM
+    SCOTT.EMP
+WHERE
+    JOB = 'king';
+
+SELECT
+    MAX(SAL)
+FROM
+    SCOTT.EMP
+WHERE
+    ENAME LIKE '%s%'
+    AND JOB = 'manager';
+
+--2.MIN FUNCTION--
+
+SELECT MIN(SAL) FROM SCOTT.emp;
+
+SELECT
+    MAX(SAL)
+FROM
+    SCOTT.EMP
+WHERE
+    JOB = 'CLERK';
+
+
+SELECT
+    MIN(SALARY)
+FROM
+    emp.scott
+WHERE
+    JOB = 'MANAGER'
+    AND DEPT_NO = 20
+    AND COMM > SAL;
+
+SELECT
+    MIN(salary)
+FROM
+    SCOTT.EMP
+WHERE
+    JOB = 'clerk'
+    AND DEPTNO IN ( 10, 20 );
+
+---3.COUNT FUNTION---
+
+SELECT
+    COUNT(*)
+FROM
+    SCOTT.EMP
+WHERE
+        SAL > 1500
+    AND DEPTNO = 10;
+
+SELECT
+    COUNT(*)
+FROM
+    SCOTT.EMP;
+
+SELECT
+    COUNT(ENAME)
+FROM
+    SCOTT.EMP;
+
+SELECT
+    COUNT(*)
+FROM
+    SCOTT.EMP
+WHERE
+    ENAME LIKE 'C%';
+
+---4.SUM FUNCTION--
+
+SELECT SUM(SAL) FROM SCOTT.emp;
+
+SELECT
+    SUM(SAL)
+FROM
+    SCOTT.EMP
+WHERE
+        JOB = 'CLERK'
+      AND DEPTNO = 30;
+
+
+SELECT
+    SUM(SALARY)
+FROM
+    SCOTT.EMP WHARE HIREDATE LIKE '%FEB%';
+
+
+--5.AVAREGE FUNCTION--
+
+SELECT AVG(SAL) FROM SCOTT.emp;
+
+SELECT
+    AVG(SAL)
+FROM
+    SCOTT.EMP
+WHERE
+    JOB = 'CLERK';
+
+
+
