@@ -48,6 +48,7 @@ var A=[ 10,20,30,40,apple,banana,mango, undefined, 'megha',null,false,['megha','
 console.log(A)
 
 console.log(A.length)
+console.log(typeof(A))
 
 
 
