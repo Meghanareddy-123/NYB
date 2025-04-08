@@ -10,12 +10,12 @@
 //     statement
 // }
 
-var A= 10
-var B =20
+// var A= 10
+// var B =20
 
-if (A<B){
-    console.log("A is grater than B")
-}
+// if (A<B){
+    // console.log("A is grater than B")
+// }
 
 // if else 
 
@@ -29,23 +29,23 @@ if (A<B){
 
 
 
-var A= 10
-var B =20
+// var A= 10
+// var B =20
 
-if (A>B){
-    console.log("A is grater than B")
-}
-else {
-    console.log("A is smaller than B")
-}
+// if (A>B){
+    // console.log("A is grater than B")
+// }
+// else {
+    // console.log("A is smaller than B")
+// }
 
-var N= 3
-if(N%3==1){
-    console.log("N is even number")
-}
-else{
-    console.log("N is odd number")
-}
+// var N= 3
+// if(N%3==1){
+//     console.log("N is even number")
+// }
+// else{
+//     console.log("N is odd number")
+// }
 // if else ladder
 
 // SYNTAX:
@@ -59,14 +59,74 @@ else{
     // statement
 // }
 
-let a=5
-if (a==1){
-    console.log("a value is 1")
+// let a=5
+// if (a==1){
+//     console.log("a value is 1")
+// }
+// else if(a==5){
+//     console.log("a value is 5")
+// }
+// else {
+//     console.log("a is value is not 1 and 5")
+// }
+
+
+
+// Switch condition
+
+// syntax:
+// switch(variable){
+//     case 1:
+//         statement
+//    case 2:
+//         statement
+//     case 3:
+//         statement  
+//     default
+//         statement  
+// }
+
+var fruit="Apple"
+switch(fruit){
+    case 'Apple':
+        console.log("this is apple")
+        break
+    case 'Banana':
+        console.log("this is banana")
+        break
+    case 'Mango': 
+        console.log("this is mango")
+        break
+    default:
+        console.log("this is not a fruit")
 }
-else if(a==5){
-    console.log("a value is 5")
+
+let day = 4;
+
+switch (day) {
+    case 1:
+        console.log("Monday");
+        break;
+    case 2:
+        console.log("Tuesday");
+        break;
+    case 3:
+        console.log("Wednesday");
+        break;
+    case 4:
+        console.log("Thursday");
+        break;
+    case 5:
+        console.log("Friday");
+        break;
+    case 6:
+        console.log("Saturday");
+        break;
+    case 7:
+        console.log("Sunday");
+        break;
+    default:
+        console.log("Invalid day");
 }
-else {
-    console.log("a is value is not 1 and 5")
-}
+
 
