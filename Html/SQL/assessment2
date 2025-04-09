@@ -1,0 +1,54 @@
+create table employees1
+(emp_id number primary key,
+emp_Name varchar2(50),
+salary number,
+doj date ,
+manager_id number null,
+dept_id number);
+
+desc employees1;
+insert into employees1(Emp_ID,EMP_NAME,SALARY,DOJ,MANAGER_ID,DEPT_ID)
+VALUES(1,'MEGHANA',20000,TO_DATE('2025-03-03','YYYY-MM-DD'),123,51);
+COMMIT;
+
+insert into employees1(Emp_ID,EMP_NAME,SALARY,DOJ,MANAGER_ID,DEPT_ID)
+VALUES(2,'PANDU',21000,TO_DATE('2024-02-02','YYYY-MM-DD'),456,52);
+COMMIT;
+
+insert into employees1(Emp_ID,EMP_NAME,SALARY,DOJ,MANAGER_ID,DEPT_ID)
+VALUES(3,'NANDU',22000,TO_DATE('2023-01-01','YYYY-MM-DD'),789,53);
+COMMIT;
+
+insert into employees1(Emp_ID,EMP_NAME,SALARY,DOJ,MANAGER_ID,DEPT_ID)
+VALUES(4,'THANUSH',23000,TO_DATE('2022-05-20','YYYY-MM-DD'),555,54);
+COMMIT;
+
+insert into employees1(Emp_ID,EMP_NAME,SALARY,DOJ,MANAGER_ID,DEPT_ID)
+VALUES(5,'TEJA',30000,TO_DATE('2021-04-21','YYYY-MM-DD'),444,55);
+COMMIT;
+
+insert into employees1(Emp_ID,EMP_NAME,SALARY,DOJ,MANAGER_ID,DEPT_ID)
+VALUES(6,'THANUSH',40000,TO_DATE('2020-05-30','YYYY-MM-DD'),666,56);
+COMMIT;
+
+insert into employees1(Emp_ID,EMP_NAME,SALARY,DOJ,MANAGER_ID,DEPT_ID)
+VALUES(7,'RANI',50000,TO_DATE('2019-06-15','YYYY-MM-DD'),777,57);
+COMMIT;
+
+
+insert into employees1(Emp_ID,EMP_NAME,SALARY,DOJ,MANAGER_ID,DEPT_ID)
+VALUES(8,'RANI',51000,TO_DATE('2019-06-15','YYYY-MM-DD'),888,58);
+
+
+SELECT * FROM EMPLOYEES1;
+
+select * from employees1
+where DOJ >=add_months(sysdate,-60);
+
+select emp_id,emp_name,salary,(salary*12)as annual_salary from employees1;
+
+update employees1
+set salary=(salary+salary*0.1)
+where salary<30000;
+
+select emp_id,emp_name,doj,round(months_between(sysdate,doj)/12) as length_of_service from employees1;
