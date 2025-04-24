@@ -1,0 +1,62 @@
+
+---NUMARIC FUNCTION---
+
+SELECT * FROM DUAL;
+
+---MOD---
+
+SELECT MOD(10,2)FROM DUAL; 
+
+SELECT MOD(SALARY,3) as MODULUES from EMPLOYEES;
+
+select MOD(COMMISSION_PCT,2) as MODULUES from EMPLOYEES;
+
+SELECT * FROM EMPLOYEES;
+
+SELECT MOD(0.3,2)FROM DUAL; 
+
+
+--Power--
+select power(2,3)from dual;
+
+select power(25,2) as power from dual;
+
+SELECT SALARY FROM EMPLOYEES
+WHERE FIRST_NAME='Steven';
+
+select POWER (SALARY,2) FROM EMPLOYEES
+WHERE first_name='Steven';
+
+-------Squrt function------
+
+select sqrt (salary) as from employees;
+
+select sqrt(commission_pct)from employees;
+
+select sqrt(25) as SQUARE_ROOT from dual;
+
+-----ROUND FUNCTION----
+
+SELECT ROUND(98.2) AS ROUND FROM  DUAL;
+
+SELECT ROUND(98.6) AS ROUND FROM DUAL;
+
+
+-------------TRUNC FUNCTION--------------
+
+SELECT TRUNC(98.6)AS TRUNC FROM DUAL;
+
+SELECT TRUNC(98.3)AS TRUNC FROM DUAL;
+
+
+---------CEEL FUNCTION------
+
+SELECT CEIL(98.6)AS CEIL FROM DUAL;   --99--
+
+SELECT CEIL(98.2)AS CEIL FROM DUAL;    --99--
+
+------FLOOR FUNCTION-------
+
+SELECT FLOOR(98.2)AS FLOOR FROM DUAL;   --98--
+
+SELECT FLOOR(98.6)AS FLOOR FROM DUAL;  --98--
