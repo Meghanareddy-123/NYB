@@ -65,4 +65,57 @@ console.log(a.indexOf("o"))
 
 // ChatAT
 // STINGNAME.CharAt(indexvalue)
-console.log(a.ChatAt(0))
+// console.log(a.Cha(0))
+
+// ASCII
+// console.log(chatCodeAt(0))
+// console.log(charCodeAt("a"))
+
+// toupper
+// console.log(a.ToupperCase("megha"))
+
+// REPLACE 
+// it can replace single word or single charecter and replace entrie string
+var a="Megha neelam"
+console.log(a)
+console.log(a.replace("Megha","Reddy"))
+console.log(a.replace("Megha neelam","Reddy"))
+
+console.log(a.replace("Megha","nm"))
+
+// CONCAT 
+
+var a="hello"
+var b="js"
+console.log(a+b)
+console.log(a.concat(b))
+console.log(b.concat(a))
+
+// SPILT METHOD
+
+var string="this is java script class"
+console.log(string)
+
+// to get individaul word by using split
+// var b=string.split(", ")
+// var b=string.split(" ")
+
+// How to find existing string
+var s="apple banana grapesb"
+var c="mango"
+
+console.log(s.lastIndexOf("b"))
+console.log(s.indexOf("p"))
+
+// includes
+// startswith
+// endwith
+// console.log(a.startSwith("apple"))
+// console.log(a.endSwith("apple"))
+
+
+// REPEAT
+var a="hii"
+console.log(a.repeat(3))
+
+
