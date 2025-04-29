@@ -1,0 +1,10 @@
+
+show user; hr
+
+---private synonym---
+create synonym xx_nyb_sys for xx_nyb;
+
+select * from xx_nyb1;
+
+create synonym xxnyb_employees_test for xxnyb_emplotee_text;
+drop synonym xx_nyb_syn;
