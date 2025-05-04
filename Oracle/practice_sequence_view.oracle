@@ -1,0 +1,92 @@
+---sequence and view---
+CREATE TABLE xxnyb_employees_new1 (
+    emp_id   NUMBER PRIMARY KEY,
+    emp_name VARCHAR2(100),
+    phone_no NUMBER,
+    address  VARCHAR2(1000)
+);
+create sequence xxnyb_employee_new1_seq;
+create sequence "XXNYB_EMPLOYEES_NEW1_SEQ"
+START WITH 100
+INCREMENT BY 10 
+MINVALUE 1 ;
+
+insert into xxnyb_employees_new1
+values (XXNYB_EMPLOYEES_NEW_SEQ.nextval, 'Nagendra', '9437454979', 'Hyderabad, India');
+
+INSERT INTO xxnyb_employees_new1
+VALIUES (xxnyb_employees_new1.nextval, 'Nagendra', '9437454979', 'Hyderabad, India');
+
+INSERT INTO xxnyb_employees_new1
+VALUES (xxnyb_employees_seq.NEXTVAL, 'Rani', '9437454979', 'banglore, India');
+
+insert into xxnyb_employees_new
+values (XXNYB_EMPLOYEES_NEW_SEQ.nextval, 'megha', '9437454979', 'Hydebad, India');
+
+insert into xxnyb_employees_new
+values (XXNYB_EMPLOYEES_NEW_SEQ.nextval, 'Raji', '3456789008', 'banglore, India');
+
+select * from XXNYB_EMPLOYEES_NEW;
+select XXNYB_EMPLOYEES_NEW_SEQ.CURRVAL from dual;
+
+insert into xxnyb_employees_new
+values (XXNYB_EMPLOYEES_NEW_SEQ.currval, 'nandu', '984546456', 'Banglore, India');
+
+commit;
+select  * from XXNYB_EMPLOYEES_NEW;
+
+create sequence "XXNYB_EMPLOYEES_NEW1_SEQ"
+START WITH 50
+INCREMENT BY 10 
+MINVALUE 1 
+CACHE 30
+CYCLE 
+ORDER ;
+
+CREATE SEQUENCE "XXNYB_EMPLOYEES_NEW1_SEQ"
+MINVALUE 20
+MAXVALUE 99999
+INCREMENT BY 5
+START WITH 50
+CACHE 30 
+ORDER 
+CYCLE;
+
+--CURRVAL and NEXTVAL 
+
+select XXNYB_EMPLOYEES_NEW_SEQ.CURRVAL sequence_current_value,
+select xxnyB_EMPLOYEES_NEW_SEQ.NEXTVAL sequence_next_value
+from dual;
+ 
+select XXNYB_EMPLOYEES_NEW_SEQ.CURRVAL sequence_current_value
+from dual;
+ 
+select XXNYB_EMPLOYEES_NEW_SEQ.NEXTVAL sequence_next_value
+from dual; 
+
+---view--
+--VIEW
+--SIMPLE VIEW
+--creating a view against employee table
+
+CREATE VIEW JOB_HISTORY_V AS
+    SELECT
+        *
+    FROM
+        JOB_HISTORY;
+        
+SELECT * FROM JOB_HISTORY_V;
+
+-- Complex view
+--using employees and department
+
+CREATE VIEW job_history_job_v AS
+    SELECT
+        e.*,
+        d.department_name,
+        d.location_id
+    FROM
+        JOB_HISTORY e
+        JOIN JOB ON JH.employee_id_id = J.department_id;
+
+select * from jobs;
