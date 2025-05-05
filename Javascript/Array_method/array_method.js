@@ -1,11 +1,12 @@
 
 // ARRAY METHOD
-// 1.MAP
-// 2.FILTER
-// 3.REDUCE
-// 4.EVARY
-// 5.SOME
-// 6.SET
+
+// 1.MAP to return array
+// 2.FILTER to return array
+// 3.REDUCE to return single value
+// 4.EVARY to return true or false all values
+// 5.SOME  to return true or false any values
+// 6.SET to return new set
 
 // 1.map()
 // it changes each and every element  in the array return a new array
@@ -106,8 +107,68 @@ console.log(a.every(i=>i%2==0))
 
 console.log(a.some(i=>i%2==0))
 
-// Set()
-var s= new set()
+// Set():does not allow duplicate values in the set
+
+var s= new Set()
 s.add(1)
 s.add(2)
+s.add(1)
+s.add(3)
+s.add(4)
+s.add(5)
+s.add(6)
 console.log(s)
+
+// delete() to delete iteam in the set
+s.delete(6)
+console.log(s)
+
+// size() to check size of the set
+console.log(s.size)
+console.log(s.length)
+
+//  has() to check the iteam in the set or not
+console.log(s.has(0)) 
+console.log(s.has(4))
+
+// clear() it remove all iteam in tha set 
+console.log (s.clear())
+
+
+
+// How to remove duplicate value in the array?
+
+var arr=[1,2,2,3,3,4,5,6,7,7]
+console.log(arr)
+var arrset=new Set(arr)
+console.log(arrset)
+
+// to convert set to array
+var arrset=[new Set(arr)];
+console.log(arrset)
+
+var arrset=[...new Set(arr)]
+console.log(arrset)
+
+// it remove duplicate iteams by using push,inclues,indexoff
+function hello(){
+var newarr=[];
+for (i of arr){
+    if(newarr.includes(i)) {
+        continue;
+    }
+    else{
+        newarr.push(i);
+    }
+}
+    return newarr ;
+}
+hello()
+console.log(hello(arr))
+
+
+// flatting of 
+
+var arr=[10,20,30,"hii",undefined,[4,5,6[55,8,9[80,30,39[1,2,4,5],[1,2,3,][2.4,7]]]]]
+console.log(arr)
+console.log(arr.flat(2))
