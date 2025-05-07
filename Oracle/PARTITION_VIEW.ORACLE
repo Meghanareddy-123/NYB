@@ -1,0 +1,118 @@
+
+---PARTITION VIEW---
+---CREATING  3 TABLES FOR SALES DATA(2023,2023,2025)---
+
+CREATE TABLE xxnyb_sales_orders_2023 (
+    salesorder_id NUMBER,
+    amount        NUMBER,
+    sales_date    DATE,
+   CONSTRAINT     xso2023_check CHECK ( sales_date >= TO_DATE('01-01-2023', 'DD-MM-YYYY')
+                                    AND sales_date < TO_DATE('01-01-2024', 'DD-MM-YY') )
+);
+SELECT * FROM xxnyb_sales_orders_2023;
+DESC xxnyb_sales_orders_2023;
+
+CREATE TABLE xxnyb_sales_orders_2024 (
+    salesorder_id NUMBER,
+    amount        NUMBER,
+    sales_date    DATE,
+   CONSTRAINT     xso2024_check CHECK ( sales_date >= TO_DATE('01-01-2024', 'DD-MM-YYYY')
+                                    AND sales_date < TO_DATE('01-01-2025', 'DD-MM-YY') )
+);
+DESC xxnyb_sales_orders_2023;
+
+CREATE TABLE xxnyb_sales_orders_2025 (
+    salesorder_id NUMBER,
+    amount        NUMBER,
+    sales_date    DATE,
+   CONSTRAINT     xso2025_check CHECK ( sales_date >= TO_DATE('01-01-2025', 'DD-MM-YYYY')
+                                    AND sales_date < TO_DATE('01-01-2025', 'DD-MM-YY') )
+);
+DESC xxnyb_sales_orders_2025;
+
+SELECT
+    salesorder_id,
+    amount,
+    sales_date
+FROM
+    xxnyb_sales_order_2023
+UNION ALL
+SELECT
+    salesorder_id,
+    amount,
+    sales_date
+FROM
+    xxnyb_sales_order_2024
+UNION ALL
+SELECT
+    salesorder_id,
+    amount,
+    sales_date
+FROM
+    xxnyb_sales_order_2025
+    
+
+SELECT
+    salesorder_id,
+    amount,
+    sales_date
+FROM
+    xxnyb_sales_order_2023
+
+UNION ALL
+
+SELECT
+    salesorder_id,
+    amount,
+    sales_date
+FROM
+    xxnyb_sales_order_2024
+
+UNION ALL
+
+SELECT
+    salesorder_id,
+    amount,
+    sales_date
+FROM
+    xxnyb_sales_order_2025;
+    
+SELECT * FROM xxnyb_sales_order_2023
+UNION ALL
+SELECT * FROM xxnyb_sales_orders_2024
+UNION ALL
+SELECT * FROM xxnyb_sales_orders_2025;
+
+rename xxnyb_sales_orders_2023 to nyb_2023;
+rename xxnyb_sales_orders_2024 to nyb_2024;
+rename xxnyb_sales_orders_2025 to nyb_2025;
+
+select * from nyb_2023
+union all
+select * from nyb_2024
+union all
+select * from nyb_2025;
+
+CREATE VIEW nyb_pv AS
+    SELECT
+        *
+    FROM
+        nyb_2023
+    UNION ALL
+    SELECT
+        *
+    FROM
+        nyb_2024
+    UNION ALL
+    SELECT
+        *
+    FROM
+        nyb_2025;
+insert into nyb_2023 values(1,1000,to_date('01-02-2023','DD-MM-YYYY'));
+SELECT *  FROM NYB_2023;
+SELECT *  FROM NYB_PV;
+insert into nyb_2024 values(2,2000,to_date('01-03-2024','DD-MM-YYYY'));
+SELECT *  FROM NYB_2024;
+SELECT *  FROM NYB_PV;
+insert into nyb_2025 values(3,1000,to_date('01-01-2025','DD-MM-YYYY'));
+SELECT *  FROM NYB_PV;
