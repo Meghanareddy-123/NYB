@@ -1,0 +1,64 @@
+
+---VIEW---
+--MATERILIZED VIEW
+
+CREATE TABLE emp_new1
+    AS
+        SELECT
+            *
+        FROM
+            employees;
+
+SELECT * FROM EMP_NEW1;
+
+
+CREATE MATERIALIZED VIEW emp_new1_mv AS
+    SELECT
+        *
+    FROM
+        emp_new1;
+        
+SELECT * FROM emp_new_mv;
+
+
+update emp_new1
+set first_name='William TEST'
+Where employee_id=206;
+
+commit;
+select * from emp_new1_mv;
+
+exce dbms_mview.refresh('emp_new_mv');
+
+CREATE TABLE emp_2
+    AS
+        SELECT
+            *
+        FROM
+            employees;
+            
+select * from emp_2;
+
+creat materilized view emp_2_mv
+   build defferred
+   refresh 
+       complete
+   start with  sysdate 
+   next sysdate + 
+as
+  select * 
+    from emp_2;
+    
+select * from emp_2_mv;
+
+creat materilized view emp_3_mv
+   build defferred
+   refresh 
+       complete
+as
+  select * 
+    from emp_2;
+    
+select * from emp_3_mv;
+
+exce dbms_mview.refresh('emp_3_mv');
