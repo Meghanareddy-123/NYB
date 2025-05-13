@@ -1,1 +1,25 @@
 
+---functionbased index--
+
+select
+ * 
+ from 
+    XXNYB_NEW_TEXT
+where 
+    upper(first_name)='STEVEN';
+
+create index xxnyb_new_text on xxnyb_new_composite_new(first_name);
+select
+ * 
+ from 
+    XXNYB_NEW_TEXT
+where
+
+    upper(first_name)='STEVEN';
+
+select
+ * 
+ from 
+    XXNYB_NEW_TEXT
+where 
+    first_name='Steven';
