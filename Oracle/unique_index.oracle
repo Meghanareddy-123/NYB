@@ -1,0 +1,84 @@
+
+---unique_index---
+CREATE table xxnyb_new_text(
+    emp_id number,
+    emp_name varchar(200),
+    hire_date dATE,
+    salary number,
+    dept_id number
+);
+insert into XXNYB_NEW_TEXT
+values(1,'teja',sysdate-189,20000,10)
+
+insert into XXNYB_NEW_TEXT
+values(2,'raji',sysdate-180,30000,200)
+
+insert into XXNYB_NEW_TEXT
+values(3,'hema',sysdate-170,40000,30)
+
+insert into XXNYB_NEW_TEXT
+values(4,'john',sysdate-168,70000,50)
+
+
+insert into XXNYB_NEW_TEXT
+values(5,'joe',sysdate-165,80000,60)
+
+commit;
+
+SELECT
+    *
+FROM
+    XXNYB_NEW_TEXT
+WHERE
+    EMP_ID = 4;
+    
+create uniqe index  XXNYB_NEW_TEXT on  XXNYB_NEW_TEXT(emp_id);
+create unique index XXNYB_NEW_TEXT on XXNYB_NEW_TEXT(emp_id);
+
+
+SELECT
+    *
+FROM
+    XXNYB_NEW_TEXT
+WHERE
+    EMP_ID = 4;
+    
+drop index xxnyb_new_text;
+
+---create a unique constrints on emp_id----
+
+alter table xxnyb_new_text
+add constraint xxnyb_new_text_unq_cost unique(emp_id);
+
+SELECT
+    *
+FROM
+    XXNYB_NEW_TEXT
+WHERE
+    EMP_ID = 4; 
+
+---Composite index (MULTIPLE COLUMNS)---
+CREATE TABLE xxnyb_emp_composite_new
+    AS
+        SELECT
+            *
+        FROM
+            employees;
+            
+            
+ SELECT
+    *
+FROM
+    xxnyb_emp_composite_new
+WHERE
+        department_id = 100
+    AND salary >= 10000;
+    
+create index xxnyb_emp_new on xxnyb_emp_composite_new(department_id,salary);
+ SELECT
+    *
+FROM
+    xxnyb_emp_composite_new
+WHERE
+        department_id = 100
+    AND salary >= 10000;
