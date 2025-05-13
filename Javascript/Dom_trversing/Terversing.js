@@ -34,3 +34,12 @@ console.log(presibiling)
 // previous sibilings
 var presibiling=div2.previousElementSibling
 console.log(presibiling)
+
+
+// To create newelement in html
+var newelement=document.createElement('h1')
+newelement.textContent="this is new element";
+div2.appendChild(newelement);
+console.log(newelement)
+newelement.setAttribute('id','newelement')
+newelement.setAttribute('class','newelement');
