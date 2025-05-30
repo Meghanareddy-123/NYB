@@ -1,0 +1,39 @@
+
+--PL/SQL Block
+
+--Declaration
+--Excutable 
+--Exception handling 
+
+
+
+--DECLARE
+--BEGIN
+--  EXCEPTION
+--END;
+--
+--declare
+--begin
+--end;
+--
+--declare
+--begin
+--null;
+--end;
+
+begin
+null;
+end;
+/
+--SET SERVEROUTPUT ON;
+
+begin
+dbms_output.put_line('&&%%@@ HELLO WELCOME TO PLSQL SESSION ---$$&&**');
+end;
+/
+
+begin
+dbms_output.put_line('Hello World!');
+end;
+/
+
