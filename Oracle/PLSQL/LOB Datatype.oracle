@@ -1,0 +1,104 @@
+--LOB Datatypes----
+--CLOB---
+DECLARE
+    lc_text CLOB;
+BEGIN
+    lc_text := 'this is a simple text to the large object(LOB) DATATYPE and that too it is a clob type .It is  basically used  to store  large of charecter data is oracle ob.'
+    ;
+    lc_text := lc_text
+               || rpad(lc_text, 10000, '*');
+    dbms_output.put_line('CLOB TEXT:' || lc_text);
+END;
+
+DECLARE
+    lc_text CLOB;
+BEGIN
+    lc_text := 'this is a simple text to the large object(LOB) DATATYPE and that too it is a clob type .It is  basically used  to store  large of charecter data is oracle ob.'
+    ;
+    lc_text := lc_text
+               || rpad(lc_text, 100000, '*');
+    dbms_output.put_line('CLOB TEXT:' || lc_text);
+END;
+
+
+--BOOLEAN Datatype-----
+
+--CREATE TABLE xxnyb_boolean_test1(emp_id number, emp_name varchar2(100), is_active BOOLEAN) ;
+CREATE TABLE xxnyb_boolean_test(emp_id number, emp_name varchar2(100), is_status  CHAR(1));
+
+drop table xxnyb_boolean_test;
+
+
+INSERT INTO XXNYB_BOOLEAN_TEST
+VALUES(1,'TEST_EMP','Y');
+
+INSERT INTO XXNYB_BOOLEAN_TEST
+VALUES(2,'TEST_EMP1','N');
+
+SELECT * FROM  xxnyb_boolean_test;
+
+
+
+
+declare 
+lc_active_flag CHAR(1);
+lb_active boolean;
+begin
+SELECT is_active
+INTO lc_active_flag
+FROM xxynyb_boolean_text
+WHERE emp_id = 1;
+ case when lc_active_flag='Y'
+      then lb_active:= TRUE;
+      ELSE lb_active:=FALSE;
+end;
+
+SET SERVEROUTPUT ON;
+DECLARE
+    lc_active_flag CHAR(1);
+    lb_active      BOOLEAN;
+BEGIN
+    SELECT is_active
+    INTO lc_active_flag
+    FROM  xxynyb_boolean_text
+    WHERE
+        emp_id = 1;
+
+    lb_active :=CASE WHEN lc_active_flag = 'Y'
+                THEN  TRUE
+                ELSE FALSE
+                END;
+    IF lb_active 
+        THEN
+           dbms_output.PUT_line('Employee is active');
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('Employee IS Inactive');
+    END IF;
+    
+END;
+
+set serveroutput on;
+declare
+lc_status char(1);
+lb_active boolean;
+begin
+select is_status
+into lc_status
+from xxnyb_boolean_test
+where emp_id=1;
+ 
+lb_active:=case when lc_status='Y'
+               then True
+                else False
+                end;
+ 
+if lb_active then
+dbms_output.put_line('employee is active');
+else
+dbms_output.put_line('employee is inactive');
+end if;
+end;
+/
+
+
+ 
