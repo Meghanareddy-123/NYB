@@ -1,0 +1,99 @@
+// / event handelrs
+
+// onclick
+// onmousedown
+// onmouseenter
+
+// div2.addEventListener(handlers,eventTObEAdd(function)useCapture)
+
+// useCapture//true//false(bubling face)(bottom to top)
+// capturing phase(top to bottom)
+
+//bubbling
+document.getElementById('outer').addEventListener('click',()=>{
+    console.log('outer')
+})
+document.getElementById('click').addEventListener('click',()=>{
+    console.log('click');
+})
+//Capturing
+document.getElementById('outer').addEventListener('click',()=>{
+    console.log('outer')
+},true)
+document.getElementById('click').addEventListener('click',()=>{
+    console.log('click');
+},true)
+ 
+
+
+// winddow > document ->html->body-div-----first---button (parent-> child)
+// top_ to bottom captiring phase
+
+// button-> div-> div->body-> html-> document -> (bottom to top)
+// bubbling phase
+
+
+// catupuring(top to bottom),true
+
+var div=document.getElementById('outer')
+// adding event listener
+div.addEventListener('click',function(){
+    console.log('div capturing')
+},true)
+
+
+var button=document.getElementById('click')
+function buttonclick(){
+    console.log('button clicked')
+}
+// buttonclick()
+button.addEventListener('click',buttonclick,true)
+
+
+// bubbling(bottom to top),false
+
+var div=document.getElementById('outer')
+
+div.addEventListener('click',function(){
+    console.log('div capturing')
+})
+
+var button=document.getElementById('click')
+function buttonclick(){
+    console.log('button clicked')
+}
+// buttonclick()
+button.addEventListener('click',buttonclick)
+
+// div.addEventListener(mouseenter,function(){
+//     console.log(' div bubbling')
+// })
+
+
+
+
+// bubbling(mouseover)
+
+var div=document.getElementById('outer')
+
+div.addEventListener('mouseover',function(){
+    console.log('div capturing')
+})
+
+var button=document.getElementById('click')
+function buttonclick(){
+    console.log('button clicked')
+}
+// buttonclick()
+button.addEventListener('mouseenter',buttonclick)
+
+
+
+
+
+
+
+
+
+
+
