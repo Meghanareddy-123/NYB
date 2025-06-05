@@ -119,3 +119,78 @@ END IF;
 
 end;
 /
+
+-----------------------------------Variables  In PLSQL ------------------------------
+
+BEGIN
+    SELECT
+        *
+    FROM
+        employees;
+
+END;
+
+DECLARE
+    lv_name VARCHAR2(100);
+BEGIN
+    SELECT
+        first_name
+    INTO lv_name
+    FROM
+        employees
+    WHERE
+        ROWNUM = 1;
+
+END;
+
+DECLARE
+    lv_name VARCHAR2(100);
+    ld_date date;
+BEGIN
+    SELECT
+        first_name,hire_date
+    INTO lv_name,ld_date
+    FROM
+        employees
+    WHERE
+        ROWNUM = 1;
+END;
+
+DECLARE
+    lv_name VARCHAR2(100);
+    ld_date date;
+BEGIN
+    SELECT
+        first_name,hire_date
+    INTO lv_name,ld_date
+    FROM
+        employees
+    WHERE
+        ROWNUM = 1;
+dbms_output.put_line('lv_name:'||lv_name);
+dbms_output.put_line('ld_date:'||ld_date);
+END;
+
+DECLARE
+--assigning a varible in dclaration section
+    lv_name     VARCHAR2(100) :='test employee'
+    ld_date     DATE;
+    lv_constant VARCHAR2(30);
+BEGIN
+    SELECT
+        first_name,
+        hire_date
+    INTO
+        lv_name,
+        ld_date
+    FROM
+        employees
+    WHERE
+        ROWNUM = 1;
+        
+--Assining the value---
+    lv_constant := 'Constant';
+    dbms_output.put_line('lv_name:' || lv_name);
+    dbms_output.put_line('ld_date:' || ld_date);
+    dbms_output.put_line('lv_constant:' || lv_constant);
+END;
