@@ -1,0 +1,127 @@
+--CASE STATEMENT
+--Two ways
+--1.simple case
+--2.search case
+
+
+--simple case
+
+DECLARE
+    lv_grade VARCHAR2(1) := 'A';  -- You can change this value to test different grades
+    ln_bonus NUMBER;
+BEGIN
+    IF lv_grade = 'A' THEN
+        ln_bonus := 10000;
+    ELSIF lv_grade = 'B' THEN
+        ln_bonus := 7500;
+    ELSIF lv_grade = 'C' THEN
+        ln_bonus := 5000;
+    ELSE
+        ln_bonus := 0;
+    END IF;
+    
+    dbms_output.put_line('Bonus: ' || ln_bonus);
+END;
+/
+
+
+DECLARE
+    lv_grade VARCHAR2(1) := 'B';  -- You can change this value to test different grades
+    ln_bonus NUMBER;
+BEGIN
+    IF lv_grade = 'A' THEN
+        ln_bonus := 10000;
+    ELSIF lv_grade = 'B' THEN
+        ln_bonus := 7500;
+    ELSIF lv_grade = 'C' THEN
+        ln_bonus := 5000;
+    ELSE
+        ln_bonus := 0;
+    END IF;
+    
+    dbms_output.put_line('Bonus: ' || ln_bonus);
+END;
+/
+
+       
+DECLARE
+    lv_grade VARCHAR2(1) := 'B';
+    ln_bonus NUMBER;
+BEGIN
+    CASE lv_grade
+        WHEN 'A' THEN
+            ln_bonus := 10000;
+        WHEN 'B' THEN
+            ln_bonus := 7000;
+        WHEN 'C' THEN
+            ln_bonus := 5000;
+        ELSE
+            ln_bonus := 0;
+    END CASE;
+
+    dbms_output.put_line('Bonus: ' || ln_bonus);
+END;
+/
+ 
+--SEARCH CASE
+
+
+DECLARE
+    ln_service_year NUMBER := 6;
+    lv_rating VARCHAR2(10) := 'Good';
+    lv_bonus_eligible VARCHAR2(3);
+BEGIN
+    IF ln_service_year >= 3 AND lv_rating = 'Excellent' THEN
+        lv_bonus_eligible := 'Yes';
+    ELSIF ln_service_year >= 5 AND lv_rating = 'Good' THEN
+        lv_bonus_eligible := 'Yes';
+    ELSE
+        lv_bonus_eligible := 'No';
+    END IF;
+
+    dbms_output.put_line('Bonus Eligible: ' || lv_bonus_eligible);
+END;
+/
+--By using case statement
+DECLARE
+    ln_service_year   NUMBER := 6;
+    lv_rating         VARCHAR2(10) := 'Good';
+    lv_bonus_eligible VARCHAR2(3);
+BEGIN
+    CASE
+        WHEN
+            ln_service_year >= 3
+            AND lv_rating = 'Excellent'
+        THEN
+            lv_bonus_eligible := 'Yes';
+        WHEN
+            ln_service_year >= 5
+            AND lv_rating = 'Good'
+        THEN
+            lv_bonus_eligible := 'Yes';
+        ELSE
+            lv_bonus_eligible := 'No';
+    END CASE;
+
+    dbms_output.put_line('Bonus ELIGIBLE:' || lv_bouns_eligible);
+    end;
+    dbms_output.put_line('Bonus Eligible: ' || lv_bonus_eligible);
+END;
+/
+DECLARE
+    ln_service_year   NUMBER := 6;
+    lv_rating         VARCHAR2(10) := 'Good';
+    lv_bonus_eligible VARCHAR2(3);
+BEGIN
+    -- Using IF for complex conditions:
+    IF ln_service_year >= 3 AND lv_rating = 'Excellent' THEN
+        lv_bonus_eligible := 'Yes';
+    ELSIF ln_service_year >= 5 AND lv_rating = 'Good' THEN
+        lv_bonus_eligible := 'Yes';
+    ELSE
+        lv_bonus_eligible := 'No';
+    END IF;
+
+    dbms_output.put_line('Bonus Eligible: ' || lv_bonus_eligible);
+END;
+/
